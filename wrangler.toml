@@ -1,0 +1,7 @@
+name = "blogs"
+account_id = "6debacda43bbe747a117582ab4ab3bdf"
+compatibility_date = "2026-03-10"
+
+# 通过 Workers 静态资源能力托管 Hugo 产物
+[assets]
+directory = "public"
