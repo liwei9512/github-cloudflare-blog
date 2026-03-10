@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://your-blog-name.pages.dev/categories/</loc>
+    <loc>https://blogs.pages.dev/categories/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/tags/cloudflare/</loc>
+    <loc>https://blogs.pages.dev/tags/cloudflare/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/tags/github/</loc>
+    <loc>https://blogs.pages.dev/tags/github/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/</loc>
+    <loc>https://blogs.pages.dev/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/posts/</loc>
+    <loc>https://blogs.pages.dev/posts/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/tags/</loc>
+    <loc>https://blogs.pages.dev/tags/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://blogs.pages.dev/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://blogs.pages.dev/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/posts/how-to-build-blog-with-github-cloudflare/</loc>
+    <loc>https://blogs.pages.dev/posts/how-to-build-blog-with-github-cloudflare/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://your-blog-name.pages.dev/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://blogs.pages.dev/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-03-10T10:30:00+08:00</lastmod>
   </url>
 </urlset>
