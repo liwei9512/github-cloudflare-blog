@@ -1,4 +1,4 @@
-baseURL = 'https://blogs.pages.dev/'
+baseURL = 'https://blogs-liwei9512.pages.dev/'
 languageCode = 'zh-cn'
 title = 'GitHub + Cloudflare Pages 博客搭建教程'
 theme = 'PaperMod'

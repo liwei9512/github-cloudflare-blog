@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on GitHub &#43; Cloudflare Pages 博客搭建教程</title>
-    <link>https://blogs.pages.dev/posts/</link>
+    <link>https://blogs-liwei9512.pages.dev/posts/</link>
     <description>Recent content in Posts on GitHub &#43; Cloudflare Pages 博客搭建教程</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 10 Mar 2026 10:30:00 +0800</lastBuildDate>
-    <atom:link href="https://blogs.pages.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blogs-liwei9512.pages.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何使用 GitHub &#43; Cloudflare Pages 搭建完全免费的个人博客</title>
-      <link>https://blogs.pages.dev/posts/how-to-build-blog-with-github-cloudflare/</link>
+      <link>https://blogs-liwei9512.pages.dev/posts/how-to-build-blog-with-github-cloudflare/</link>
       <pubDate>Tue, 10 Mar 2026 10:30:00 +0800</pubDate>
-      <guid>https://blogs.pages.dev/posts/how-to-build-blog-with-github-cloudflare/</guid>
+      <guid>https://blogs-liwei9512.pages.dev/posts/how-to-build-blog-with-github-cloudflare/</guid>
       <description>&lt;h2 id=&#34;为什么选择这个方案&#34;&gt;为什么选择这个方案？&lt;/h2&gt;
 &lt;p&gt;这是当前个人博客搭建的「天花板级免费方案」，完美匹配 &lt;strong&gt;免费、安全、隐私优先、高可靠&lt;/strong&gt; 的需求：&lt;/p&gt;
 &lt;ol&gt;
