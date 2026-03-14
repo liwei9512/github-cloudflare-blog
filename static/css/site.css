@@ -333,6 +333,10 @@ body.home {
   color: #e5e7eb;
 }
 
+.reading-content h1:first-of-type {
+  display: none;
+}
+
 .reading-content h2,
 .reading-content h3 {
   margin-top: 36px;
@@ -348,6 +352,30 @@ body.home {
 .reading-content img {
   max-width: 100%;
   border-radius: 12px;
+}
+
+.next-chapter {
+  margin-top: 48px;
+  padding: 20px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  background: rgba(8, 12, 20, 0.6);
+}
+
+.next-link {
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.next-link:hover {
+  color: #22d3ee;
+}
+
+.next-placeholder {
+  font-size: 16px;
+  color: rgba(148, 163, 184, 0.85);
 }
 
 .list {

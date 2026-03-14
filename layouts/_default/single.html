@@ -13,6 +13,45 @@
     <div class="reading-content">
       {{ .Content }}
     </div>
+    {{- $hasNext := false }}
+    {{- $nextTitle := "" }}
+    {{- $nextLink := "" }}
+    {{- with .CurrentSection }}
+      {{- $pages := .RegularPages }}
+      {{- $hasSeries := false }}
+      {{- range $pages }}
+        {{- if .Params.series_order }}
+          {{- $hasSeries = true }}
+        {{- end }}
+      {{- end }}
+      {{- if $hasSeries }}
+        {{- $pages = sort $pages "Params.series_order" "asc" }}
+      {{- else }}
+        {{- $pages = sort $pages "File.Path" }}
+      {{- end }}
+      {{- $currentIndex := -1 }}
+      {{- range $i, $p := $pages }}
+        {{- if eq $p.RelPermalink $.RelPermalink }}
+          {{- $currentIndex = $i }}
+        {{- end }}
+      {{- end }}
+      {{- if ge $currentIndex 0 }}
+        {{- $nextIndex := add $currentIndex 1 }}
+        {{- if lt $nextIndex (len $pages) }}
+          {{- $nextPage := index $pages $nextIndex }}
+          {{- $hasNext = true }}
+          {{- $nextTitle = $nextPage.Title }}
+          {{- $nextLink = $nextPage.RelPermalink }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+    <section class="next-chapter">
+      {{- if $hasNext }}
+      <a class="next-link" href="{{ $nextLink }}">{{ $nextTitle }}</a>
+      {{- else }}
+      <div class="next-placeholder">连载中，敬请期待</div>
+      {{- end }}
+    </section>
   </article>
 </main>
 {{ end }}
