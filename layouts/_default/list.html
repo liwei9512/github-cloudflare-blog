@@ -29,9 +29,7 @@
       {{ range $pages }}
       <li class="list-item">
         <a class="list-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ with .Summary }}
-        <div class="list-summary">{{ . }}</div>
-        {{ end }}
+        <div class="list-summary">{{ .Title }}</div>
       </li>
       {{ end }}
     </ul>
