@@ -1,0 +1,110 @@
+{{- define "main" }}
+<div class="topbar">
+  <a class="topbar-link" href="/">返回首页</a>
+</div>
+{{- if .Title }}
+<header class="list-header">
+  <h1 class="list-title">{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="list-desc">{{ .Description | markdownify }}</div>
+  {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="list-body">
+  {{ .Content }}
+</div>
+{{- end }}
+
+{{- $isFiction := eq .Data.Term "文学小说" }}
+{{- $pages := .Pages }}
+{{- $groups := dict }}
+{{- range $pages }}
+  {{- $dir := "未归档" }}
+  {{- if .File }}
+    {{- $dir = .File.Dir | strings.TrimSuffix "/" | path.Base }}
+  {{- end }}
+  {{- if or (eq $dir "") (eq $dir "posts") }}
+    {{- $dir = "未归档" }}
+  {{- end }}
+  {{- $list := index $groups $dir | default (slice) }}
+  {{- $list = $list | append . }}
+  {{- $groups = merge $groups (dict $dir $list) }}
+{{- end }}
+
+{{- $keys := slice }}
+{{- range $dir, $_ := $groups }}
+  {{- $keys = $keys | append $dir }}
+{{- end }}
+
+{{- if $isFiction }}
+<div class="novel-grid">
+  {{- range sort $keys }}
+    {{- $dir := . }}
+    {{- $list := index $groups $dir }}
+    {{- $section := site.GetPage (printf "posts/%s" $dir) }}
+    {{- $title := $dir }}
+    {{- $desc := "" }}
+    {{- $cover := "" }}
+    {{- $tagline := "" }}
+    {{- if $section }}
+      {{- $title = $section.Title }}
+      {{- $desc = $section.Params.description | default "" }}
+      {{- $cover = $section.Params.cover | default "" }}
+      {{- $tagline = $section.Params.card_tagline | default "" }}
+    {{- end }}
+    {{- $cardLink := "" }}
+    {{- if $section }}
+      {{- $cardLink = $section.RelPermalink }}
+    {{- end }}
+    {{- if $cardLink }}
+    <a class="novel-card" href="{{ $cardLink }}">
+      <div class="novel-cover" {{ if $cover }}style="background-image: url('{{ $cover }}')"{{ end }}></div>
+      <div class="novel-body">
+        <div class="novel-title">{{ $title }}</div>
+        {{- if $desc }}
+        <div class="novel-desc">{{ $desc }}</div>
+        {{- end }}
+        <div class="novel-meta">
+          {{- if $tagline }}<span>{{ $tagline }}</span>{{ end }}
+          <span>{{ len $list }} 章</span>
+        </div>
+      </div>
+    </a>
+    {{- else }}
+    <div class="novel-card">
+      <div class="novel-cover"></div>
+      <div class="novel-body">
+        <div class="novel-title">{{ $title }}</div>
+        <div class="novel-desc">尚未归档到独立目录的章节集合</div>
+        <div class="novel-meta"><span>{{ len $list }} 章</span></div>
+        <ul class="novel-links">
+          {{- range sort $list "File.Path" }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+    {{- end }}
+  {{- end }}
+</div>
+{{- else }}
+<div class="list-content">
+  {{- range sort $keys }}
+    {{- $dir := . }}
+    {{- $list := index $groups $dir }}
+  <section class="list-group">
+    <h2 class="list-group-title">{{ $dir }}</h2>
+    <ul class="list-items">
+      {{- range sort $list "File.Path" }}
+      <li class="list-item">
+        <a class="list-link" href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+</div>
+{{- end }}
+{{- end }}

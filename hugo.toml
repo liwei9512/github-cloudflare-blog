@@ -1,43 +1,43 @@
 baseURL = 'https://blogs-liwei9512.pages.dev/'
 languageCode = 'zh-cn'
 title = 'GitHub + Cloudflare Pages 博客搭建教程'
-theme = 'PaperMod'
+theme = 'hugoplate'
 
 [params]
-  description = '从零开始搭建免费、安全、可靠的个人博客全指南'
-  ShowReadingTime = true
-  ShowBreadCrumbs = true
-  ShowPostNavLinks = true
-  ShowCodeCopyButtons = true
-  enableInlineShortcodes = true
-  disableSpecial1stPost = false
-  disableScrollToTop = false
-  showToc = true
-  TocOpen = true
-  hidemeta = false
-  hideSummary = false
-  comments = false
+description = '从零开始搭建免费、安全、可靠的个人博客全指南'
+ShowReadingTime = true
+ShowBreadCrumbs = true
+ShowPostNavLinks = true
+ShowCodeCopyButtons = true
+enableInlineShortcodes = true
+disableSpecial1stPost = false
+disableScrollToTop = false
+showToc = true
+TocOpen = true
+hidemeta = false
+hideSummary = false
+comments = false
 
-  [params.homeInfoParams]
-    Title = "GitHub + Cloudflare Pages 个人博客搭建指南"
-    Content = "完全免费、隐私优先、零服务器成本的个人博客搭建教程，适合发布文章、小说、技术文档等内容。"
+[params.homeInfoParams]
+Title = "GitHub + Cloudflare Pages 个人博客搭建指南"
+Content = "完全免费、隐私优先、零服务器成本的个人博客搭建教程，适合发布文章、小说、技术文档等内容。"
 
 [menu]
-  [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
-    weight = 1
-  [[menu.main]]
-    identifier = "tags"
-    name = "标签"
-    url = "/tags/"
-    weight = 2
-  [[menu.main]]
-    identifier = "categories"
-    name = "分类"
-    url = "/categories/"
-    weight = 3
+[[menu.main]]
+identifier = "tech"
+name = "技术文章"
+url = "/categories/技术文章/"
+weight = 1
+[[menu.main]]
+identifier = "fiction"
+name = "文学小说"
+url = "/categories/文学小说/"
+weight = 2
+[[menu.main]]
+identifier = "history"
+name = "历史文化"
+url = "/categories/历史文化/"
+weight = 3
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main class="reading">
+  <article class="reading-article">
+    <div class="topbar">
+      <a class="topbar-link" href="/">返回首页</a>
+    </div>
+    <header class="reading-header">
+      <h1 class="reading-title">{{ .Title }}</h1>
+      {{ with .Date }}
+      <div class="reading-meta">{{ .Format "2006-01-02" }}</div>
+      {{ end }}
+    </header>
+    <div class="reading-content">
+      {{ .Content }}
+    </div>
+  </article>
+</main>
+{{ end }}

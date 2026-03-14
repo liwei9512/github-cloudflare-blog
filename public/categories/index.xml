@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on GitHub &#43; Cloudflare Pages 博客搭建教程</title>
+    <link>http://localhost:54838/categories/</link>
+    <description>Recent content in Categories on GitHub &#43; Cloudflare Pages 博客搭建教程</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 13 Mar 2026 11:20:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:54838/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>文学小说</title>
+      <link>http://localhost:54838/categories/%E6%96%87%E5%AD%A6%E5%B0%8F%E8%AF%B4/</link>
+      <pubDate>Fri, 13 Mar 2026 11:20:00 +0800</pubDate>
+      <guid>http://localhost:54838/categories/%E6%96%87%E5%AD%A6%E5%B0%8F%E8%AF%B4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>技术文章</title>
+      <link>http://localhost:54838/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Tue, 10 Mar 2026 10:30:00 +0800</pubDate>
+      <guid>http://localhost:54838/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>历史文化</title>
+      <link>http://localhost:54838/categories/%E5%8E%86%E5%8F%B2%E6%96%87%E5%8C%96/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54838/categories/%E5%8E%86%E5%8F%B2%E6%96%87%E5%8C%96/</guid>
+      <description>&lt;p&gt;暂无内容，敬请期待。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

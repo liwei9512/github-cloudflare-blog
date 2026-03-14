@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-cn">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=54838&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>如何使用 GitHub &#43; Cloudflare Pages 搭建完全免费的个人博客 | GitHub &#43; Cloudflare Pages 博客搭建教程</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body class="page">
+  
+<main class="reading">
+  <article class="reading-article">
+    <div class="topbar">
+      <a class="topbar-link" href="/">返回首页</a>
+    </div>
+    <header class="reading-header">
+      <h1 class="reading-title">如何使用 GitHub &#43; Cloudflare Pages 搭建完全免费的个人博客</h1>
+      
+      <div class="reading-meta">2026-03-10</div>
+      
+    </header>
+    <div class="reading-content">
+      <h2 id="为什么选择这个方案">为什么选择这个方案？</h2>
+<p>这是当前个人博客搭建的「天花板级免费方案」，完美匹配 <strong>免费、安全、隐私优先、高可靠</strong> 的需求：</p>
+<ol>
+<li>✅ 完全0成本，无任何隐性消费</li>
+<li>✅ 隐私100%可控：所有原始内容存在你自己的GitHub私有仓库，任何第三方都无法获取你的草稿、未发布内容</li>
+<li>✅ 全球访问速度快：Cloudflare全球300+节点CDN加速，纯静态页面加载仅需几百毫秒</li>
+<li>✅ 企业级安全：免费HTTPS、DDoS防护、防入侵，比绝大多数自建站更安全</li>
+<li>✅ 无限流量、无限存储空间，无广告打扰</li>
+<li>✅ 高度自定义：可以任意更换主题、添加功能，不受平台限制</li>
+<li>✅ 内容完全可迁移：所有源文件都在你手里，随时可以迁到其他平台</li>
+</ol>
+<hr>
+<h2 id="前置准备">前置准备</h2>
+<p>你只需要两个免费账号：</p>
+<ol>
+<li>GitHub账号（你Chrome上已经登录了，直接用就行）</li>
+<li>Cloudflare账号（https://dash.cloudflare.com/sign-up 注册，完全免费）</li>
+</ol>
+<hr>
+<h2 id="步骤1创建github私有仓库">步骤1：创建GitHub私有仓库</h2>
+<ol>
+<li>打开GitHub：https://github.com/new</li>
+<li>填写仓库信息：
+<ul>
+<li>仓库名：比如 <code>my-blog</code>（随便取，英文即可）</li>
+<li>仓库类型选择 <strong>Private</strong>（私有，避免你的原始内容、草稿被公开）</li>
+<li>勾选 <code>Add a README file</code></li>
+<li>点击 <code>Create repository</code> 创建完成</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="步骤2上传博客文件到github">步骤2：上传博客文件到GitHub</h2>
+<p>我已经帮你生成了完整的博客项目文件，存在你本地的 <code>/Users/liwei.ok/.openclaw/workspace/github-cloudflare-blog/</code> 目录下，直接上传到刚才创建的GitHub仓库即可：</p>
+<ol>
+<li>打开刚才创建的GitHub仓库页面，点击 <code>Add file</code> → <code>Upload files</code></li>
+<li>把本地 <code>github-cloudflare-blog</code> 目录下的所有文件全部拖到上传框里</li>
+<li>点击 <code>Commit changes</code> 完成上传</li>
+</ol>
+<hr>
+<h2 id="步骤3绑定cloudflare-pages自动部署">步骤3：绑定Cloudflare Pages自动部署</h2>
+<ol>
+<li>打开Cloudflare控制台：https://dash.cloudflare.com/</li>
+<li>左侧菜单找到 <code>Pages</code> → 点击 <code>Create project</code> → 选择 <code>Connect to Git</code></li>
+<li>授权Cloudflare访问你刚才创建的GitHub私有仓库</li>
+<li>配置部署参数：
+<ul>
+<li>项目名称：随便取，比如 <code>my-blog</code>，这个就是你的免费二级域名前缀，最终访问地址是 <code>https://项目名.pages.dev</code></li>
+<li>生产分支：<code>main</code>（GitHub默认分支）</li>
+<li>构建命令：<code>hugo</code></li>
+<li>构建输出目录：<code>public</code></li>
+</ul>
+</li>
+<li>点击 <code>Save and Deploy</code>，等待1分钟左右，部署就完成了！</li>
+<li>部署成功后，Cloudflare会给你一个免费的访问地址，打开就能看到你的博客了。</li>
+</ol>
+<hr>
+<h2 id="后续怎么发布新文章">后续怎么发布新文章？</h2>
+<p>超级简单，两步搞定：</p>
+<ol>
+<li>本地写好Markdown格式的文章，放到 <code>content/posts/</code> 目录下</li>
+<li>上传到GitHub仓库，Cloudflare会自动编译部署，1分钟后就能在博客上看到新文章。</li>
+</ol>
+<hr>
+<h2 id="可选优化">可选优化</h2>
+<ol>
+<li><strong>绑定自定义域名</strong>：Cloudflare Pages支持免费绑定你自己的域名，自动签发SSL证书，全程免费</li>
+<li><strong>添加评论功能</strong>：推荐用Giscus（基于GitHub Discussions），支持匿名评论，完全免费，不需要额外服务器</li>
+<li><strong>更换主题</strong>：Hugo有上千款免费开源主题，下载后放到themes目录，修改配置文件即可切换</li>
+<li><strong>添加全文搜索</strong>：很多主题自带搜索功能，开启即可，不需要额外服务</li>
+</ol>
+<hr>
+<h2 id="避坑提醒">避坑提醒</h2>
+<ol>
+<li>仓库一定要设为私有，否则你的未发布草稿、源文件会被所有人看到</li>
+<li>原始Markdown文件建议本地再备份一份，双重保险</li>
+<li>不要在博客里泄露个人真实身份、联系方式等敏感信息</li>
+</ol>
+
+    </div>
+  </article>
+</main>
+
+</body>
+</html>

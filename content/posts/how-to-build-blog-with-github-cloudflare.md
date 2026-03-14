@@ -3,7 +3,7 @@ title: "如何使用 GitHub + Cloudflare Pages 搭建完全免费的个人博客
 date: 2026-03-10T10:30:00+08:00
 draft: false
 tags: ["博客搭建", "GitHub", "Cloudflare", "免费工具"]
-categories: ["技术教程"]
+categories: ["技术文章"]
 ---
 
 ## 为什么选择这个方案？
