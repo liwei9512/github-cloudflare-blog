@@ -22,20 +22,25 @@ comments = false
 Title = "GitHub + Cloudflare Pages 个人博客搭建指南"
 Content = "完全免费、隐私优先、零服务器成本的个人博客搭建教程，适合发布文章、小说、技术文档等内容。"
 
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
 [menu]
 [[menu.main]]
 identifier = "tech"
-name = "技术文章"
+name = "技术基建"
 url = "/categories/技术文章/"
 weight = 1
 [[menu.main]]
 identifier = "fiction"
-name = "文学小说"
-url = "/categories/文学小说/"
+name = "创世沙盘"
+url = "/literature/"
 weight = 2
 [[menu.main]]
 identifier = "history"
-name = "历史文化"
+name = "演化算法"
 url = "/categories/历史文化/"
 weight = 3
 

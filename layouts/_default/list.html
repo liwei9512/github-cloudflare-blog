@@ -9,12 +9,24 @@
     <div class="list-desc">{{ . }}</div>
     {{ end }}
   </header>
+  {{- $pages := .Pages }}
+  {{- $hasSeries := false }}
+  {{- range $pages }}
+    {{- if .Params.series_order }}
+      {{- $hasSeries = true }}
+    {{- end }}
+  {{- end }}
+  {{- if $hasSeries }}
+    {{- $pages = sort $pages "Params.series_order" "asc" }}
+  {{- else }}
+    {{- $pages = sort $pages "File.Path" }}
+  {{- end }}
   <div class="list-content">
     {{ with .Content }}
     <div class="list-body">{{ . }}</div>
     {{ end }}
-    <ul class="list-items">
-      {{ range .Pages }}
+    <ul class="list-items list-chapters">
+      {{ range $pages }}
       <li class="list-item">
         <a class="list-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{ with .Summary }}

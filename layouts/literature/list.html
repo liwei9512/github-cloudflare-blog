@@ -17,7 +17,7 @@
 </div>
 {{- end }}
 
-{{- $pages := .Pages }}
+{{- $pages := where site.RegularPages "Params.categories" "intersect" (slice "文学小说") }}
 {{- $groups := dict }}
 {{- range $pages }}
   {{- $dir := "未归档" }}
@@ -56,32 +56,7 @@
     {{- if $section }}
       {{- $cardLink = $section.RelPermalink }}
     {{- end }}
-    {{- if and (not $section) (eq $dir "未归档") }}
-      {{- range $list }}
-      <a class="catalog-card" href="{{ .RelPermalink }}">
-        <div class="catalog-cover"></div>
-        <div class="catalog-body">
-          <div class="catalog-title">{{ .Title }}</div>
-          {{- with .Summary }}
-          <div class="catalog-desc">{{ . }}</div>
-          {{- end }}
-          <div class="catalog-meta"><span>单篇文章</span></div>
-        </div>
-      </a>
-      {{- end }}
-    {{- else if and (not $section) (eq (len $list) 1) }}
-      {{- $page := index $list 0 }}
-      <a class="catalog-card" href="{{ $page.RelPermalink }}">
-        <div class="catalog-cover"></div>
-        <div class="catalog-body">
-          <div class="catalog-title">{{ $page.Title }}</div>
-          {{- with $page.Summary }}
-          <div class="catalog-desc">{{ . }}</div>
-          {{- end }}
-          <div class="catalog-meta"><span>单篇文章</span></div>
-        </div>
-      </a>
-    {{- else if $cardLink }}
+    {{- if $cardLink }}
     <a class="catalog-card" href="{{ $cardLink }}">
       <div class="catalog-cover" {{ if $cover }}style="background-image: url('{{ $cover }}')"{{ end }}></div>
       <div class="catalog-body">
