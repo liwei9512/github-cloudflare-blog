@@ -1,0 +1,46 @@
+name: PR Policy (Approval & Manual Confirm)
+
+on:
+  pull_request_review:
+    types: [submitted, dismissed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "要校验的 PR 编号（用于手动触发）"
+        required: false
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+
+jobs:
+  policy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate approvals and label
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const {owner, repo} = context.repo;
+            const prFromEvent = context.payload.pull_request;
+            const prInput = core.getInput('pr_number');
+            const prNumber = prFromEvent ? prFromEvent.number : (prInput ? Number(prInput) : null);
+            if (!prNumber) {
+              core.setFailed('缺少 PR 编号：请在 PR 事件下触发，或通过 workflow_dispatch 传入 pr_number');
+              return;
+            }
+
+            const reviews = await github.rest.pulls.listReviews({ owner, repo, pull_number: prNumber, per_page: 100 });
+            const latestByUser = new Map();
+            for (const r of reviews.data) {
+              if (!r.user?.login) continue;
+              latestByUser.set(r.user.login, r.state);
+            }
+            const approved = Array.from(latestByUser.values()).some(state => state === 'APPROVED');
+            core.info(`Approvals: ${approved}`);
+            if (!approved) {
+              core.setFailed('PR 尚未获得至少 1 个 APPROVED 审核');
+              return;
+            }
+            core.info('PR 满足审批要求');

@@ -1,0 +1,11 @@
+{
+  "name": "liwei-blog",
+  "version": "1.0.0",
+  "description": "个人博客，包含技术文章、科幻小说《衔尾蛇协议》等内容",
+  "scripts": {
+    "build": "hugo --minify",
+    "dev": "hugo server -D"
+  },
+  "author": "liwei",
+  "license": "CC BY-NC-ND 4.0"
+}

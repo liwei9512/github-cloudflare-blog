@@ -1,0 +1,38 @@
+{{ define "main" }}
+<main class="list">
+  <div class="topbar">
+    <a class="topbar-link" href="/">返回首页</a>
+  </div>
+  <header class="list-header">
+    <h1 class="list-title">{{ .Title }}</h1>
+    {{ with .Description }}
+    <div class="list-desc">{{ . }}</div>
+    {{ end }}
+  </header>
+  {{- $pages := .Pages }}
+  {{- $hasSeries := false }}
+  {{- range $pages }}
+    {{- if .Params.series_order }}
+      {{- $hasSeries = true }}
+    {{- end }}
+  {{- end }}
+  {{- if $hasSeries }}
+    {{- $pages = sort $pages "Params.series_order" "asc" }}
+  {{- else }}
+    {{- $pages = sort $pages "File.Path" }}
+  {{- end }}
+  <div class="list-content">
+    {{ with .Content }}
+    <div class="list-body">{{ . }}</div>
+    {{ end }}
+    <ul class="list-items list-chapters">
+      {{ range $pages }}
+      <li class="list-item">
+        <a class="list-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <div class="list-summary">{{ .Title }}</div>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</main>
+{{ end }}
