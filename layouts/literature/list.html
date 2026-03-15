@@ -57,7 +57,7 @@
       {{- $cardLink = $section.RelPermalink }}
     {{- end }}
     {{- if $cardLink }}
-    <a class="catalog-card" href="{{ $cardLink }}">
+    <a class="catalog-card{{ if eq $dir "衔尾蛇协议" }} catalog-card--ouroboros{{ end }}" href="{{ $cardLink }}">
       <div class="catalog-cover" {{ if $cover }}style="background-image: url('{{ $cover }}')"{{ end }}></div>
       <div class="catalog-body">
         <div class="catalog-title">{{ $title }}</div>
@@ -82,6 +82,19 @@
           <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
           {{- end }}
         </ul>
+      </div>
+    </div>
+    {{- end }}
+  {{- end }}
+  {{- $count := len $keys }}
+  {{- if lt $count 3 }}
+    {{- range seq (sub 3 $count) }}
+    <div class="catalog-card catalog-card--placeholder">
+      <div class="catalog-cover"></div>
+      <div class="catalog-body">
+        <div class="catalog-title">新世界筹备中</div>
+        <div class="catalog-desc">更多小说与宇宙正在生成，敬请期待。</div>
+        <div class="catalog-meta"><span>即将解锁</span></div>
       </div>
     </div>
     {{- end }}

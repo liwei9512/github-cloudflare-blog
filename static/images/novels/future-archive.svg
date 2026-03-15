@@ -1,24 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
   <defs>
-    <linearGradient id="g1" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0b0f1e"/>
-      <stop offset="50%" stop-color="#23315a"/>
-      <stop offset="100%" stop-color="#0b132d"/>
+    <linearGradient id="bg-eye" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="50%" stop-color="#111a30"/>
+      <stop offset="100%" stop-color="#0c1326"/>
     </linearGradient>
-    <radialGradient id="g2" cx="0.8" cy="0.2" r="0.7">
-      <stop offset="0%" stop-color="rgba(255,170,80,0.55)"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    <radialGradient id="iris" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#0b2430"/>
+      <stop offset="45%" stop-color="#1b9fb8"/>
+      <stop offset="100%" stop-color="#0a1a2a"/>
     </radialGradient>
-    <radialGradient id="g3" cx="0.2" cy="0.8" r="0.7">
-      <stop offset="0%" stop-color="rgba(110,140,255,0.5)"/>
+    <radialGradient id="glow-eye" cx="0.52" cy="0.45" r="0.55">
+      <stop offset="0%" stop-color="rgba(120,210,255,0.55)"/>
       <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
     </radialGradient>
   </defs>
-  <rect width="1200" height="700" fill="url(#g1)"/>
-  <circle cx="980" cy="140" r="280" fill="url(#g2)"/>
-  <circle cx="220" cy="520" r="320" fill="url(#g3)"/>
-  <g opacity="0.45">
-    <rect x="180" y="180" width="840" height="360" rx="40" fill="none" stroke="#7aa0ff" stroke-width="2"/>
-    <path d="M260 360h680" stroke="#a0b7ff" stroke-width="2" stroke-dasharray="6 10"/>
+  <rect width="1200" height="700" fill="url(#bg-eye)"/>
+  <circle cx="600" cy="350" r="250" fill="url(#glow-eye)"/>
+  <g fill="none" stroke="rgba(110, 231, 255, 0.65)" stroke-width="2">
+    <circle cx="600" cy="350" r="180"/>
+    <circle cx="600" cy="350" r="210" stroke-dasharray="12 16"/>
   </g>
+  <circle cx="600" cy="350" r="150" fill="url(#iris)"/>
+  <circle cx="600" cy="350" r="60" fill="#0a0f1f"/>
+  <circle cx="580" cy="330" r="16" fill="rgba(255,255,255,0.7)"/>
+  <path d="M600 160C760 160 880 250 930 350C880 450 760 540 600 540C440 540 320 450 270 350C320 250 440 160 600 160Z" fill="none" stroke="rgba(90, 215, 255, 0.25)" stroke-width="10"/>
+  <path d="M600 190C740 190 840 270 880 350C840 430 740 510 600 510C460 510 360 430 320 350C360 270 460 190 600 190Z" fill="none" stroke="rgba(30, 48, 84, 0.65)" stroke-width="18"/>
+  <path d="M520 210L600 140L680 210L630 290L680 390L600 460L520 390L570 300Z" fill="none" stroke="rgba(120, 210, 255, 0.8)" stroke-width="3"/>
 </svg>

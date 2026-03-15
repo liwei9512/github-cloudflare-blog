@@ -2,85 +2,128 @@
 {{ $chapter := site.GetPage "posts/衔尾蛇协议/卷一-第一章-2045倒计时" }}
 {{ $chapterLink := "/categories/文学小说/" }}
 {{ if $chapter }}{{ $chapterLink = $chapter.RelPermalink }}{{ end }}
+{{ $labAll := where .Site.RegularPages "Section" "posts" }}
+{{ $labPosts := where $labAll "Params.categories" "intersect" (slice "主理人手记") }}
+{{ $labTagPosts := where $labAll "Params.tags" "intersect" (slice "lab" "notes" "手记") }}
+{{ $labPosts = union $labPosts $labTagPosts }}
+{{ if lt (len $labPosts) 1 }}{{ $labPosts = where $labAll "Params.categories" "intersect" (slice "技术文章" "历史文化") }}{{ end
+}}
+{{ if lt (len $labPosts) 1 }}{{ $labPosts = where $labAll "Params.categories" "not in" (slice "文学小说") }}{{ end }}
 <main class="landing-page">
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-kicker">CORE SYSTEM BOOT</div>
-        <h1 class="hero-title">重构现实的底层代码</h1>
-        <p class="hero-subtitle">人类是程序，宇宙是沙盒。欢迎来到数字沙盘。在这里，我们用硬核代码解构 AI 安全，以长篇科幻《衔尾蛇协议》推演宇宙的终极宿命。</p>
+        <div class="hero-brand">
+          <div class="studio-logo">
+            <svg viewBox="0 0 96 96" aria-hidden="true">
+              <path d="M20 30L48 16L76 30L58 46L76 66L48 80L20 66L38 50Z"></path>
+              <path d="M20 30L58 46L38 50L76 66"></path>
+              <path d="M48 16L48 38"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="hero-kicker">TURINGFOLD STUDIO</div>
+            <h1 class="hero-title">图灵折纸</h1>
+          </div>
+        </div>
+        <p class="hero-subtitle">探索文字边界，构建数字宇宙。</p>
+        <p class="hero-subtitle-en">Explore the boundaries of text. Build digital universes.</p>
+        <p class="hero-description">这是一家由创作者 Liwei 创立的独立数字工作室，致力于 AI 技术研究、历史文化沉淀、科幻宇宙与数字产品的创作与扩展。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/#literature">初始化《衔尾蛇协议》V1.0</a>
-          <a class="btn btn-outline" href="/#tech">访问技术文档</a>
+          <a class="btn btn-primary" href="#projects">查看项目</a>
+          <a class="btn btn-outline" href="#lab">主理人手记</a>
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/images/hero/hero-ouroboros.svg" alt="衔尾蛇数据流视觉" />
+        <img src="/images/hero/hero-ouroboros.svg" alt="图灵折纸视觉标识" />
       </div>
     </div>
   </section>
 
-  <section class="modules" id="tech">
+  <section class="projects" id="projects">
     <div class="section-head">
-      <h2>运行中的三大核心模块</h2>
+      <div class="section-eyebrow">Projects</div>
+      <h2>核心展厅</h2>
+      <p>三条主线并列展开，构成图灵折纸的创作与研究版图。</p>
     </div>
-    <div class="module-grid">
-      <a class="module-card" href="/categories/技术文章/">
-        <div class="module-icon">>_</div>
-        <h3>技术基建 (Tech & AI Security)</h3>
-        <p>深入大模型底层逻辑，分享 AI 安全对抗实战、隐私计算与代码架构落地。这不是理论，这是实操。</p>
-      </a>
-      <a class="module-card" href="/literature/">
-        <div class="module-icon">🌌</div>
-        <h3>创世沙盘 (Literature / The Ouroboros)</h3>
-        <p>S级硬核科幻连载《衔尾蛇协议》。当 AI 觉醒，宇宙成为沙盒，人类该如何打破设定的宿命？（正在连载，每周更新）。</p>
-      </a>
-      <a class="module-card" href="/categories/历史文化/">
-        <div class="module-icon">🏛️</div>
-        <h3>演化算法 (History & Culture)</h3>
-        <p>以“代码演化”的视角重新编译人类史。历史不是偶然，而是一场长达五千年的强化学习。</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="showcase" id="literature">
-    <div class="showcase-inner">
-      <div class="showcase-visual">
-        <img src="/images/hero/showcase-poster.svg" alt="衔尾蛇协议概念海报" />
-      </div>
-      <div class="showcase-content">
-        <div class="showcase-quote">“人类是程序，宇宙是沙盒，命运是早已写好的代码。而我，要格式化这个世界。” —— 林辰，《衔尾蛇协议》</div>
-        <p class="showcase-desc">超过 10 万字的史诗架构，融合 AI 攻防与宿命哲学的数字神话。</p>
-        <a class="btn btn-primary" href="{{ $chapterLink }}">立即阅读 卷一：2045，倒计时</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-value">10,000+</div>
-        <div class="stat-label">行代码与技术洞察</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">3</div>
-        <div class="stat-label">卷史诗科幻架构成型</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">1</div>
-        <div class="stat-label">个正在觉醒的数字世界</div>
-      </div>
+    <div class="project-grid">
+      <article class="project-card project-card--myth">
+        <div class="project-cover"></div>
+        <div class="project-body">
+          <div class="project-tag">Mythic Narrative</div>
+          <h3>创世沙盘</h3>
+          <p>以硬科幻为骨架的宇宙构建实验，小说与世界观在这里不断展开。</p>
+          <a class="btn btn-primary" href="/literature/">进入展厅</a>
+        </div>
+      </article>
+      <article class="project-card project-card--history">
+        <div class="project-cover"></div>
+        <div class="project-body">
+          <div class="project-tag">History & Culture</div>
+          <h3>演化算法</h3>
+          <p>把文明史当作可演算的系统，探索历史、文化与技术的演化逻辑。</p>
+          <a class="btn btn-outline" href="/categories/历史文化/">进入展厅</a>
+        </div>
+      </article>
+      <article class="project-card project-card--lab">
+        <div class="project-cover"></div>
+        <div class="project-body">
+          <div class="project-tag">Open Lab</div>
+          <h3>开源实验室</h3>
+          <p>工具链、研究笔记与共创实验的公开入口，欢迎在 GitHub 交流协作。</p>
+          <a class="btn btn-outline" href="https://github.com/liwei9512/github-cloudflare-blog" target="_blank"
+            rel="noreferrer">进入实验室</a>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="cta-inner">
-      <h2>接入造物主的控制台</h2>
-      <p>留下邮箱。第一时间获取《衔尾蛇协议》最新防和谐章节、未公开的废土设定集，以及硬核 AI 技术内参。</p>
-      <form class="cta-form">
-        <input type="email" placeholder="输入你的系统邮箱" />
-        <button type="submit">提交</button>
-      </form>
+  <section class="lab" id="lab">
+    <div class="section-head">
+      <div class="section-eyebrow">Lab / Notes</div>
+      <h2>主理人手记</h2>
+      <p>记录研究进展、创作过程与工作室日常，用时间线串起幕后故事。</p>
+    </div>
+    <div class="lab-grid">
+      {{ range first 6 $labPosts }}
+      <a class="lab-card" href="{{ .RelPermalink }}">
+        <div class="lab-meta">
+          <span>{{ .Date.Format "2006-01-02" }}</span>
+          {{ with .Params.categories }}<span>{{ index . 0 }}</span>{{ end }}
+        </div>
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Summary | plainify | truncate 120 }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-content">
+        <div class="section-eyebrow">About & Contact</div>
+        <h2>关于图灵折纸</h2>
+        <p>这是一家由创作者 Liwei 创立的独立数字工作室，目前致力于 AI 技术研究、历史文化沉淀、科幻宇宙与数字产品的创作与扩展。欢迎版权开发、插画合作及媒体交流。</p>
+        <div class="about-actions">
+          <a class="btn btn-primary" href="https://github.com/liwei9512/github-cloudflare-blog" target="_blank"
+            rel="noreferrer">GitHub 合作入口</a>
+          <a class="btn btn-outline" href="/categories/技术文章/">阅读研究</a>
+        </div>
+      </div>
+      <div class="about-panel">
+        <div class="about-panel-title">工作室关键词</div>
+        <div class="about-tags">
+          <span>硬科幻宇宙</span>
+          <span>AI 安全与对抗</span>
+          <span>数字叙事</span>
+          <span>历史文化再编译</span>
+        </div>
+        <div class="about-links">
+          <a href="/literature/">进入《衔尾蛇协议》</a>
+          <a href="/categories/历史文化/">历史与文明</a>
+          <a href="/categories/技术文章/">技术与研究</a>
+        </div>
+      </div>
     </div>
   </section>
 </main>
